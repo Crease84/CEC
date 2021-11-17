@@ -8,12 +8,15 @@ using namespace std; //Hacker Codes
 
 //Global Variables
 vector<string> inventory(5);
-int sanity = 20;
 int MONIES = 10;
+int health = 100;
 
 //Function Declares
 void Inventory();
 void shop();
+void monsterHigh();
+void Battle(int monsterHealth);
+
 
 int main() {
 	system("color B"); //Changes Text to blue 
@@ -27,7 +30,6 @@ int main() {
 
 	inventory.push_back("Flashlight");
 	turns++;
-	sanity--;
 
 	cout << "you looking like an aStronust that like goes To space or whAtever on a mission but, the space ship You are on explodedsssssss" << endl;
 	cout << "While floating around spacE a transdImensional home ship appeaRs from the emptyness, You are able to finD a way aboard" << endl;
@@ -73,7 +75,8 @@ int main() {
 			break;
 
 		case 2:
-			//system("CLS");
+			system("CLS");
+			monsterHigh();
 			cout << ">" << input << endl;
 			cout << "A coutch and an accent coffe table are flipped over and theres a futureistic tv that lights up the room with an EERE blue light" << endl;
 			cout << "This is probably the living room" << endl;
@@ -82,7 +85,7 @@ int main() {
 			for (int i = 5; i < inventory.size(); i++)
 				if (inventory[i].compare("Key") != 0)
 					cout << "Theres a key inside a coffee mug thats on the floor by the table" << endl;
-
+			
 
 			getline(cin, input);
 
@@ -189,9 +192,6 @@ int main() {
 
 	} while (input != "q");
 
-	if (sanity < 1)
-		cout << "You forgot to control your Sanity..." << endl;
-
 
 }
 
@@ -249,4 +249,51 @@ void shop() {
 		
 
 	} while (input != "q");
+}
+
+void monsterHigh() {
+	int num = rand() % 100 + 1;
+	if (num <= 20) {
+		cout << "EEK A SPOOKY GHOSTTTTTT O_o" << endl << endl;
+		Battle(40);
+	}
+	else if (num <= 50) {
+		cout << "OMG THATS A HUGEEE SPIDER, MY MOM IS ALLERGIC!!!" << endl;
+		Battle(30);
+	}
+	else if (num <= 90) {
+		cout << "OH GEEZ Rick, It's a lifeform that used to be decesed but now it seems that the cells have reanimated the organs and tissue and they are able to have normal human functions and dont feel pain when they are hurt or when limbs are removed from their abdomend but, for some reason they like to eat the cerebral cortexes of the people that havent been reanimated" << endl;
+		Battle(55);
+	}
+	else {
+		cout << "Its a wizard harry!" << endl << "Its a WHATT??" << endl;
+		Battle(100);
+	}
+}
+
+void Battle(int monsterHealth) {
+	int damage;
+	while (health > 0 && monsterHealth > 0){
+		damage = rand() % 20;
+		health -= damage;
+		cout << "the monster hurts for for " << damage << "damage" << endl;
+		//Player attacks
+		string lookingFor = "Sword";
+		size_t found = inventory[0].find(lookingFor);
+		if (found != string::npos)
+			cout << "Sword found in inventory: " << *found << '\n';
+		else
+			cout << "Sword not found in inventory\n";
+			
+		damage = rand() % 40;
+		monsterHealth -= damage;
+		cout << "The monster takes " << damage << " damage from you" << endl;
+	} // end of loop battle
+
+	if (monsterHealth <= 0) {
+		cout << "The monster sashayed away" << endl;
+	}
+	else
+		cout << "you died" << endl;
+
 }
