@@ -3,11 +3,12 @@
 #include<Windows.h>
 #include<vector>
 #include<string>
+#include<ctime>
 
 using namespace std; //Hacker Codes
 
 //Global Variables
-vector<string> inventory(5);
+vector<string> inventory;
 int MONIES = 10;
 int health = 100;
 
@@ -16,10 +17,11 @@ void Inventory();
 void shop();
 void monsterHigh();
 void Battle(int monsterHealth);
-
+void NPC(int JesseMadrigal);
 
 int main() {
 	system("color B"); //Changes Text to blue 
+	srand(time(NULL));
 
 	//Local Variables
 	int turns = 0;
@@ -29,6 +31,7 @@ int main() {
 	cout << "turn: " << turns << endl;
 
 	inventory.push_back("Flashlight");
+	inventory.push_back("Sword");
 	turns++;
 
 	cout << "you looking like an aStronust that like goes To space or whAtever on a mission but, the space ship You are on explodedsssssss" << endl;
@@ -45,6 +48,7 @@ int main() {
 		switch (room) {
 		case 1:
 			system("CLS");
+			monsterHigh();
 			cout << ">" << input << endl;
 			cout << "Its pretty dark but,  the room looks like a kitchen" << endl;
 			cout << "There's a stove, dishwasher, fridge, and complementing blue countertops" << endl;
@@ -197,8 +201,9 @@ int main() {
 
 
 void Inventory() {
+	cout << "Your health is: " << health << endl;
 	cout << "Currenly, you are holding: " << endl;
-	for (int i = 5; i < inventory.size(); i++)
+	for (int i = 0; i < inventory.size(); i++)
 		cout << "- " << inventory[i] << endl;
 	cout << "You have " << MONIES << "MONIES" << endl;
 }
@@ -273,17 +278,22 @@ void monsterHigh() {
 
 void Battle(int monsterHealth) {
 	int damage;
+	bool found = 0;
 	while (health > 0 && monsterHealth > 0){
 		damage = rand() % 20;
 		health -= damage;
-		cout << "the monster hurts for for " << damage << "damage" << endl;
+		cout << "the monster hurts for for " << damage << " damage" << endl;
 		//Player attacks
-		string lookingFor = "Sword";
-		size_t found = inventory[0].find(lookingFor);
-		if (found != string::npos)
-			cout << "Sword found in inventory: " << *found << '\n';
-		else
-			cout << "Sword not found in inventory\n";
+		for (int i = 0; i < inventory.size(); i++) {
+			if (inventory[i] == "Sword") {
+				found = 1;
+				cout << "You attack with your Sword'\n'";
+			}
+		}
+		if (found == 0)
+			cout << "You attack with your Fist\n";
+
+			
 			
 		damage = rand() % 40;
 		monsterHealth -= damage;
@@ -296,4 +306,29 @@ void Battle(int monsterHealth) {
 	else
 		cout << "you died" << endl;
 
+}
+
+
+void NPC(int JesseMadrigal) {
+	int num;
+	if (JesseMadrigal == 1) {
+		cout << "You encounter a talking ROCK" << endl;
+		num = rand() % 3;
+		if (num == 0)
+			cout << "WHAT ARE YOU LOOKING AT?! " << endl;
+		else if (num == 0)
+			cout << "WHAT ARE YOU LOOKING AT?! " << endl;
+		else if (num == 0)
+			cout << "WHAT ARE YOU LOOKING AT?! " << endl;
+	}
+
+	else if(JesseMadrigal == 2){
+		cout << "Theres a yellow daisy " << endl;
+
+	}
+
+	else {
+
+	}
+	
 }
