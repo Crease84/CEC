@@ -12,11 +12,8 @@ int sanity = 20;
 
 
 void logo();
-void Inventory() {
-	cout << "Currenly, you are holding: " << endl;
-	for (int i = 5; i < inventory.size(); i++)
-		cout << "- " << inventory[i] << endl;
-}
+void Inventory();
+void intro();
 
 int main() {
 	system("color B"); //Changes Text to blue 
@@ -30,22 +27,12 @@ int main() {
 	cout << "turn: " << turns << endl;
 
 	//logo();
-	inventory.push_back("Flashlight");
+	intro();
 	turns++;
-
-	cout << "you looking like an aStronust that like goes To space or whAtever on a mission but, the space ship You are on explodedsssssss" << endl;
-	cout << "While floating around spacE a transdImensional home ship appeaRs from the emptyness, You are able to finD a way aboard" << endl;
-	cout << "youre gonna be straned there for a while, better go explore or die of loneliness  " << endl;
-	cout << "good thing you brought a flashlight" << endl;
-	cout << endl;
-	cout << "ENTER 'q' TO EXIT AT ANY TIME" << endl;
-	cout << endl;
-	system("pause");
-	system("CLS");
 
 	do { //-------------Game Loop -----------------
 		switch (room) {
-		case 1:
+		case 1: //Kitchen
 			system("CLS");
 			cout << ">" << input << endl;
 			cout << "Its pretty dark but,  the room looks like a kitchen" << endl;
@@ -71,7 +58,7 @@ int main() {
 			}
 			break;
 
-		case 2:
+		case 2: //Living Room
 			//system("CLS");
 			cout << ">" << input << endl;
 			cout << "A coutch and an accent coffe table are flipped over and theres a futureistic tv that lights up the room with an EERE blue light" << endl;
@@ -103,7 +90,7 @@ int main() {
 				cout << "You WHAT?" << endl;
 			break;
 
-		case 3:
+		case 3: // Bathroom
 			//system("CLS");
 			cout << ">" << input << endl;
 			cout << "Theres toilet! AND ITS USED" << endl;
@@ -358,4 +345,50 @@ void logo() { //Logo Defined
 	Beep(1200, 200);
 	Beep(1355, 300);
 	system("CLS");
+}
+
+void Inventory() {
+	cout << "Currenly, you are holding: " << endl;
+	for (int i = 5; i < inventory.size(); i++)
+		cout << "- " << inventory[i] << endl;
+}
+
+void intro() {
+	cout << "---INCOMING TRANSMISTION---" << endl;
+	system("pause");
+	system("CLS");
+	cout << "---INCOMING TRANSMISTION---" << endl;
+	cout << "Hey Cyd- I have a mission for you," << endl;
+	cout << "I need you to check out a warning signal coming from one of our transdemantional space station" << endl;
+	Sleep(3800);
+	cout << "The Staion is a multi-floor residencial office that serves base for our ''Supernatrual Prevaors'' branch" << endl;
+	Sleep(3800);
+	cout << "We havent heard back from them in...a while..." << endl;
+	Sleep(3000);
+	cout << "All I can find out is that theres was recent funding for investicatrions in something called -Jacob's Veil" << endl;
+	Sleep(3900);
+	cout << "I was able to get my hand on some more info about it, Ill send it to you" << endl;
+	Sleep(3800);
+	cout << "Someone will be by to take you to the site and hook you up with gear" << endl;
+	Sleep(3800);
+	cout << "report back to ME, if you find anything...This is TOP SECRET" << endl;
+	Sleep(3000);
+	cout << "DONT ";
+	Sleep(350);
+	cout << "TELL ";
+	Sleep(350);
+	cout << "A ";
+	Sleep(350);
+	cout << "SOUL ";
+	Sleep(350);
+	cout << "ABOUT ";
+	Sleep(350);
+	cout << "THIS! ";
+	Sleep(350);
+	inventory.insert(inventory.begin(), "Flashlight");
+	cout << endl;
+	system("pause");
+
+	system("CLS");
+
 }
