@@ -20,7 +20,8 @@ int main() {
 
 	//Local Variables
 	int turns = 0;
-	int room = 1;
+	int room = 2;
+	int floor = 1;
 	string input;
 
 
@@ -28,11 +29,49 @@ int main() {
 
 	//logo();
 	intro();
+
+	cout << endl;
+	cout << endl;
+	cout << "Today marks your first day in space" << endl;
+	cout << "The 3rd level of the office is the most stable" << endl;
+	cout << "You can easily dock and go through the emegancy excape pod chamber" << endl;
 	turns++;
 
 	do { //-------------Game Loop -----------------
 		switch (room) {
-		case 1: //Kitchen
+		case 1: //Living Room
+			//system("CLS");
+			cout << ">" << input << endl;
+			cout << "A coutch and an accent coffe table are flipped over and theres a futureistic tv that lights up the room with an EERE blue light" << endl;
+			cout << "This is probably the living room" << endl;
+			cout << "Spiders are occupying the coutch, looks like thier favorte show is on...IDK" << endl;
+			cout << "You can see a door to the West and a hole in the wall to the North" << endl;
+			for (int i = 5; i < inventory.size(); i++)
+				if (inventory[i].compare("Hexagon Stair Key") != 0)
+					cout << "Theres a keycard inside a coffee mug thats on the floor by the table" << endl;
+
+
+			getline(cin, input);
+
+
+			if (input == "Take Key") {
+				cout << "You added the Key to your inventory" << endl;
+				inventory.push_back("Hexagon Stair Key");
+			}
+			else if (input == "Inventory") {
+				system("CLS");
+				Inventory();
+				system("pause");
+			}
+			else if (input == "Go North")
+				room = 4;
+			else if (input == "Go East")
+				room = 2;
+			else
+				cout << "You WHAT?" << endl;
+			break;
+
+		case 2: //Kitchen
 			system("CLS");
 			cout << ">" << input << endl;
 			cout << "Its pretty dark but,  the room looks like a kitchen" << endl;
@@ -49,45 +88,13 @@ int main() {
 				Inventory();
 				system("pause");
 			}
-			else if (input == "Go East")
+			else if (input == "Go West")
 				room = 2;
 			else if (input == "Go North")
-				room = 4;
-			else {
+				room = 3;
+			else { 
 				cout << "Im not sure you can go that way" << endl;
 			}
-			break;
-
-		case 2: //Living Room
-			//system("CLS");
-			cout << ">" << input << endl;
-			cout << "A coutch and an accent coffe table are flipped over and theres a futureistic tv that lights up the room with an EERE blue light" << endl;
-			cout << "This is probably the living room" << endl;
-			cout << "Spiders are occupying the coutch, looks like thier favorte show is on...IDK" << endl;
-			cout << "You can see a door to the West and a hole in the wall to the North" << endl;
-			for (int i = 5; i < inventory.size(); i++)
-				if (inventory[i].compare("Key") != 0)
-					cout << "Theres a key inside a coffee mug thats on the floor by the table" << endl;
-
-
-			getline(cin, input);
-
-
-			if (input == "Take Key") {
-				cout << "You added the Key to your inventory" << endl;
-				inventory.push_back("Key");
-			}
-			else if (input == "Inventory") {
-				system("CLS");
-				Inventory();
-				system("pause");
-			}
-			else if (input == "Go North")
-				room = 3;
-			else if (input == "Go West")
-				room = 1;
-			else
-				cout << "You WHAT?" << endl;
 			break;
 
 		case 3: // Bathroom
@@ -112,7 +119,7 @@ int main() {
 				cout << "But nobody came..." << endl;
 			break;
 
-		case 4:
+		case 4: //Bedroom
 			//system("CLS");
 			cout << ">" << input << endl;
 			cout << "A big bed takes up most of the room" << endl;
@@ -140,19 +147,20 @@ int main() {
 				cout << "Error - 404" << endl;
 			break;
 
-		case 5:
+		case 5: //HexAgotyStair-room
 			//system("CLS");
 			cout << ">" << input << endl;
-			cout << "Nothing much going on here" << endl;
-			cout << "A grand stair case spirals downward?" << endl;
+			cout << "A big dark room with multiple corners" << endl;
+			cout << "Nothing much going on here other than that..." << endl;
+			cout << "A grand stair case spirals downward" << endl;
 			cout << "Im not sure how thats possible?" << endl;
-			cout << "You can go West down the stairs or easyt to the bedroom" << endl;
+			cout << "You can go West down the stairs or east to the bedroom" << endl;
 
 			getline(cin, input);
 
 			if (input == "Invt" || "Inventory")
 				Inventory();
-			if (input == "Go West")
+			else if (input == "Go West")
 				room = 6;
 			else if (input == "Go East")
 				room = 4;
@@ -349,7 +357,7 @@ void logo() { //Logo Defined
 
 void Inventory() {
 	cout << "Currenly, you are holding: " << endl;
-	for (int i = 5; i < inventory.size(); i++)
+	for (int i = 0 ; i < inventory.size(); i++)
 		cout << "- " << inventory[i] << endl;
 }
 
@@ -371,19 +379,11 @@ void intro() {
 	Sleep(3800);
 	cout << "Someone will be by to take you to the site and hook you up with gear" << endl;
 	Sleep(3800);
-	cout << "report back to ME, if you find anything...This is TOP SECRET" << endl;
-	Sleep(3000);
-	cout << "DONT ";
-	Sleep(350);
-	cout << "TELL ";
-	Sleep(350);
-	cout << "A ";
-	Sleep(350);
-	cout << "SOUL ";
-	Sleep(350);
-	cout << "ABOUT ";
-	Sleep(350);
-	cout << "THIS! ";
+	cout << "report back to ME, if you find anything...This is TOP PRIORITY" << endl;
+
+
+
+
 	Sleep(350);
 	inventory.insert(inventory.begin(), "Flashlight");
 	cout << endl;
