@@ -8,7 +8,6 @@ using namespace std; //Hacker Codes
 
 //Global Variables
 vector<string> inventory(5);
-int sanity = 20;
 
 
 void logo();
@@ -16,26 +15,18 @@ void Inventory();
 void intro();
 
 int main() {
-	system("color B"); //Changes Text to blue 
 
 	//Local Variables
-	int turns = 0;
 	int room = 2;
 	int floor = 1;
 	string input;
 
+	srand(time(NULL));
 
-	cout << "turn: " << turns << endl;
 
 	//logo();
 	intro();
 
-	cout << endl;
-	cout << endl;
-	cout << "Today marks your first day in space" << endl;
-	cout << "The 3rd level of the office is the most stable" << endl;
-	cout << "You can easily dock and go through the emegancy excape pod chamber" << endl;
-	turns++;
 
 	do { //-------------Game Loop -----------------
 		switch (room) {
@@ -92,7 +83,7 @@ int main() {
 				room = 2;
 			else if (input == "Go North")
 				room = 3;
-			else { 
+			else {
 				cout << "Im not sure you can go that way" << endl;
 			}
 			break;
@@ -150,31 +141,35 @@ int main() {
 		case 5: //HexAgotyStair-room
 			//system("CLS");
 			cout << ">" << input << endl;
-			cout << "A big dark room with multiple corners" << endl;
-			cout << "Nothing much going on here other than that..." << endl;
+			cout << "The door SLAMS behind you" << endl;
+			cout << "A big dark room with multiple corners surrounds you" << endl;
 			cout << "A grand stair case spirals downward" << endl;
-			cout << "Im not sure how thats possible?" << endl;
-			cout << "You can go West down the stairs or east to the bedroom" << endl;
+			cout << "Nothing much going on here other than that..." << endl;
+			cout << "You can go Down the stairs or East to the bedroom" << endl;
 
 			getline(cin, input);
 
 			if (input == "Invt" || "Inventory")
 				Inventory();
-			else if (input == "Go West")
-				room = 6;
+			else if (input == "Go West"){
+				cout << ">" << input << endl;
+				cout << "You make your way down the steps casuasly" << endl;
+				cout << "Theres nothing that seems out of normal..." << endl;
+				cout << "Half way down the stair case, something grabs your ankle and pulls on your foot" << endl;
+				cout << "The floor seems to be getting closer to you face" << endl;
+				cout << "Your flashlight hits every step on the way down as your body follows its lead to the bottom" << endl;
+				room = 52;
+			}
 			else if (input == "Go East")
-				room = 4;
+				cout << "The door wont budge, not good" << endl;
 			else
 				cout << "Yea, NO... " << endl;
 			break;
 
 
-		case 6:
+		case 52:
 			//system("CLS");
-			cout << ">" << input << endl;
-			cout << "You make your way down the steps carefully" << endl;
-			cout << "Half way down something grabs your ankle" << endl;
-			cout << "Your flashlight hits every step on the way down as your body follows its lead to the bottom" << endl;
+			
 
 			break;
 
@@ -362,33 +357,60 @@ void Inventory() {
 }
 
 void intro() {
-	cout << "---INCOMING TRANSMISTION---" << endl;
+	system("color A");
+	cout << "Your name is Cyd Wazz, " << endl;
+	cout << "You live your life alone and have no interation with people on the outside" << endl;
+	cout << "because you work with an agency called 'Silk'" << endl;
+	cout << "Though you dont have a concreate idea about what and who the organization you work with " << endl;
+	cout << "They give you jobs and tasks to compleate and send you money the next day through a third party " << endl;
+	cout << "You never questioned it, and its never been a problem with you becuse you trust them and it pays the bills " << endl;
+	cout << "Your waiting for your associate to contact you with the info for yout next tast " << endl;
+	cout << endl;
+	cout << endl;
 	system("pause");
 	system("CLS");
-	cout << "---INCOMING TRANSMISTION---" << endl;
-	cout << "Hey Cyd- I have a mission for you," << endl;
+	system("color E");
+	cout << "---INCOMING TRANSMISTION---" << endl;//motive
+	Sleep(3800);//gives real life instant messanger feel
+	cout << "Hey Cyd- I have a mission for the day," << endl;
 	cout << "I need you to check out a warning signal coming from one of our transdemantional space station" << endl;
 	Sleep(3800);
 	cout << "The Staion is a multi-floor residencial office that serves base for our ''Supernatrual Prevaors'' branch" << endl;
 	Sleep(3800);
 	cout << "We havent heard back from them in...a while..." << endl;
 	Sleep(3000);
-	cout << "All I can find out is that theres was recent funding for investicatrions in something called -Jacob's Veil" << endl;
+	cout << "All I can find out is that theres was recent funding for investicatrions in something called - 'Veil'" << endl;
 	Sleep(3900);
-	cout << "I was able to get my hand on some more info about it, Ill send it to you" << endl;
+	cout << "I was able to get my hand on some more info about it but, its not alot as comunication has been termanated for the time being, Ill send you the file" << endl;
 	Sleep(3800);
-	cout << "Someone will be by to take you to the site and hook you up with gear" << endl;
+	cout << "Someone will be by to take you to the site" << endl;
 	Sleep(3800);
 	cout << "report back to ME, if you find anything...This is TOP PRIORITY" << endl;
-
-
-
-
-	Sleep(350);
-	inventory.insert(inventory.begin(), "Flashlight");
 	cout << endl;
+	Sleep(3000);
+	cout << "---END OF TRANSMISTION---" << endl;
+	cout << "1 attached file" << endl;
 	system("pause");
-
 	system("CLS");
 
+	system("color F");
+	for (int i = 0; i < 3; i++) { //Redacted Paragraph
+		for (int i = 0; i <= 10; i++) {
+			cout << " ";
+			int numb = rand() % 5 + 1;
+			for (int i = 0; i < numb; i++)
+				cout << char(178);
+		}
+		cout << endl;
+	}
+
+	Sleep(350);
+	inventory.insert(inventory.begin(), "Flashlight");//God said
+	cout << endl;
+	system("pause");
+	system("CLS");
+	cout << "Today marks your first day on the space mission" << endl;
+	cout << "The sencors say that the 3rd level of the office is the most stable for climbing aboard" << endl;
+	cout << "You can easily go through the emegancy excape pod chamber but you have to leave your mail ship behind" << endl;
+	cout << "So much for your ride back home..." << endl;//stranded
 }
