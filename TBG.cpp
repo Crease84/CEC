@@ -138,14 +138,19 @@ int main() {
 				cout << "Error - 404" << endl;
 			break;
 
-		case 5: //HexAgotyStair-room
+		case 5: //HexAgoty Stair-room
 			//system("CLS");
-			cout << ">" << input << endl;
-			cout << "The door SLAMS behind you" << endl;
-			cout << "A big dark room with multiple corners surrounds you" << endl;
-			cout << "A grand stair case spirals downward" << endl;
-			cout << "Nothing much going on here other than that..." << endl;
-			cout << "You can go Down the stairs or East to the bedroom" << endl;
+			if (floor == 3) {
+				cout << ">" << input << endl;
+				cout << "The door SLAMS behind you" << endl;
+				cout << "A big dark room with multiple corners surrounds you" << endl;
+				cout << "A grand stair case spirals downward" << endl;
+				cout << "Nothing much going on here other than that..." << endl;
+				cout << "You can go Down the stairs or East to the bedroom" << endl;
+			}
+			else {
+
+			}
 
 			getline(cin, input);
 
@@ -171,8 +176,121 @@ int main() {
 			//system("CLS");
 			
 
+
+			getline(cin, input);
+
+			if (input == "Invt" || "Inventory")
+				Inventory();
+			if (input == "Go South")
+				room = 3;
+			else if (input == "Go Up")
+				room = 5;
+			else
+				cout << "Error - 404" << endl;
 			break;
 
+
+		case 6:
+			//system("CLS");
+
+
+			break;
+		case 7:
+			//system("CLS");
+
+
+			break;
+
+		case 8:
+			//system("CLS");
+
+
+			break;
+
+		case 9:
+			//system("CLS");
+
+
+			break;
+
+		case 10:
+			//system("CLS");
+
+		
+			break;
+
+		case 11:
+			//system("CLS");
+
+
+			break;
+
+		case 112:
+			//system("CLS");
+
+
+			break;
+
+		case 12:
+			//system("CLS");
+
+
+			break;
+
+
+		case 122:
+			//system("CLS");
+
+
+			break;
+
+		case 13:
+			//system("CLS");
+
+
+			break;
+
+		case 14:
+			//system("CLS");
+
+
+			break;
+
+		case 15:
+			//system("CLS");
+
+
+			break;
+
+		case 16:
+			//system("CLS");
+
+
+			break;
+
+		case 17:
+			//system("CLS");
+
+
+			break;
+
+		case 18:
+			//system("CLS");
+
+
+			break;
+
+		case 19:
+			//system("CLS");
+
+
+			break;
+
+		case 20:
+			//system("CLS");
+
+
+			break;
 		}//End Switch
 
 
@@ -398,6 +516,8 @@ void intro() {
 		for (int i = 0; i <= 10; i++) {
 			cout << " ";
 			int numb = rand() % 5 + 1;
+
+
 			for (int i = 0; i < numb; i++)
 				cout << char(178);
 		}
